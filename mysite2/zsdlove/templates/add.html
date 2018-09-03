@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加员工信息</title>
+</head>
+<body>
+<p>添加员工信息</p>
+<form action="/add/" method="post">
+    <input type="text" name="employee_id" placeholder="请输入员工id"></input>
+    <input type="text" name="employee_name" placeholder="请输入员工名字"></input>
+    <input type="submit" name="sub" value="添加">
+</form>
+<br>
+<p>输出员工数据</p>
+<table>
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for line in data %}
+        <tr>
+            <td>{{line.emploee_id}}</td>
+            <td>{{line.emploee_name}}<a href="/delete_opt?emploee_name={{line.emploee_name}}">删除</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
